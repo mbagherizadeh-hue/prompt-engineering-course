@@ -21,10 +21,13 @@ npm start
 یا فایل `index.html` را مستقیم در مرورگر باز کنید.
 
 ## Build
-پروژه یک صفحهٔ HTML استاتیک است و Build ندارد (`npm run build` فقط پیام نمایش می‌دهد).
+```bash
+npm run build
+```
+این دستور `index.html` را در پوشهٔ `public/` کپی می‌کند (خروجی قابل انتشار). پوشهٔ `public/` در Git ثبت نمی‌شود و در هر Build ساخته می‌شود.
 
 ## انتشار روی Vercel
-مخزن را در Vercel وارد کنید (Framework Preset: Other). Build Command و Output Directory را خالی بگذارید.
+مخزن را در Vercel وارد کنید (Framework Preset: Other). Build Command: `npm run build` و Output Directory: `public` (این مقادیر در `vercel.json` هم تنظیم شده‌اند).
 
 ## لینک‌ها
 - وب‌سایت: https://www.kasbsara.com

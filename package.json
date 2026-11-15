@@ -4,8 +4,11 @@
   "description": "وب‌سایت آموزشی فارسی: چگونه با هوش مصنوعی حرفه‌ای کار کنیم؟",
   "private": true,
   "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
-    "start": "npx --yes serve .",
-    "build": "echo \"پروژه استاتیک است و نیازی به Build ندارد.\""
+    "build": "node scripts/build.js",
+    "start": "npm run build && npx --yes serve public"
   }
 }
