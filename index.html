@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>چگونه با هوش مصنوعی حرفه‌ای کار کنیم؟</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--ink:#16213e;--mut:#5a6275;--or:#f26a1b;--orl:#fff4ec;--line:#e8eaf0;--card:#fafbfd;--code:#0f1a33;--cf:#f3f5fa;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0e1424;--ink:#eef1f8;--mut:#a3abc0;--orl:#2a1d14;--line:#252d45;--card:#151c30;--cf:#1a2238}}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.9;font-size:18px}
+body.fs{font-size:21px}
+#bar{position:fixed;top:0;right:0;height:4px;background:var(--or);width:0;z-index:20}
+nav{position:fixed;top:0;right:0;bottom:0;width:230px;padding:28px 18px;border-left:1px solid var(--line);background:var(--bg);overflow:auto;z-index:10}
+nav b{display:block;color:var(--or);font-size:15px;margin-bottom:12px}
+nav a{display:block;padding:7px 12px;border-radius:10px;color:var(--mut);text-decoration:none;font-size:15px}
+nav a:hover,nav a.on{background:var(--orl);color:var(--or);font-weight:600}
+#fsb{position:fixed;left:16px;bottom:16px;z-index:20;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:10px;padding:8px 14px;font:inherit;font-size:14px;cursor:pointer}
+main{margin-right:230px;max-width:1180px;padding:0 40px 60px}
+section{padding:56px 0 20px;border-bottom:1px solid var(--line)}
+.no{display:inline-block;background:var(--or);color:#fff;border-radius:10px;padding:0 12px;font-weight:800;font-size:15px}
+h1{font-size:46px;line-height:1.5;margin:10px 0}h2{font-size:32px;margin:8px 0 6px}h3{font-size:20px;margin:0 0 4px}
+.sub{color:var(--mut);font-size:19px;margin:0 0 20px}.or{color:var(--or)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;margin:18px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;border-top:4px solid var(--or)}
+.card p{margin:4px 0 10px;color:var(--mut);font-size:16px}.card .en{color:var(--or);font-size:13px;font-weight:600;direction:ltr;display:block;text-align:right}
+.code{position:relative;background:var(--code);color:#e8ecf6;border-radius:12px;padding:16px 16px 16px 70px;font-size:15px;line-height:1.9;white-space:pre-wrap;margin:8px 0;font-family:Vazirmatn,Tahoma,monospace;overflow-x:auto}
+.code.ltr{direction:ltr;text-align:left;padding:16px 70px 16px 16px;font-family:Consolas,monospace}
+.cp{position:absolute;top:8px;left:8px;background:var(--or);color:#fff;border:0;border-radius:8px;padding:2px 10px;font:inherit;font-size:13px;cursor:pointer}
+.ltr .cp{left:auto;right:8px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.bad{border-top-color:#d64545}.good{border-top-color:#2e9e6a}
+.msg{background:var(--cf);border-radius:14px;padding:10px 16px;margin:8px 0;border-right:4px solid var(--or)}
+.msg small{color:var(--or);font-weight:600}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 16px;margin:10px 0}
+summary{cursor:pointer;font-weight:600;color:var(--or)}
+table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--line);padding:6px 10px;text-align:right}th{background:var(--orl)}
+.tip{background:var(--orl);border-radius:14px;padding:14px 18px;margin:14px 0}
+.chs{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}.chs a{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--ink);text-decoration:none}.chs a:hover{border-color:var(--or)}
+.lk a{color:var(--or);direction:ltr;display:inline-block}
+.who{border-right:4px solid var(--or);background:var(--orl);border-radius:14px;padding:10px 20px;margin:18px 0;display:inline-block}.who small{display:block;color:var(--mut);font-size:13px;letter-spacing:.5px}.who b{font-size:30px;font-weight:800;line-height:1.5}.who b span{color:var(--or)}.strip{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:22px 0 0}.strip .who{margin:0}.strip .who b{font-size:24px}.strip p{margin:0}footer{margin-right:230px;padding:26px 40px;border-top:1px solid var(--line);color:var(--mut);font-size:15px;text-align:center}footer a{color:var(--or);text-decoration:none;margin:0 10px}@media(max-width:900px){footer{margin:0;padding:22px 18px}nav{display:none}main{margin:0;padding:0 18px 60px}.two{grid-template-columns:1fr}h1{font-size:32px}}
+</style>
+</head>
+<body>
+<div id="bar"></div><nav id="nav"><b>فهرست فصل‌ها</b></nav><button id="fsb">تمام‌صفحه ⛶</button>
+<main id="m"></main>
+<footer><b>دکتر مهدی باقری‌زاده</b><br><a href="https://www.kasbsara.com" target="_blank">kasbsara.com</a><a href="https://www.youtube.com/@Dr.Bagherizadeh-AI" target="_blank">یوتیوب</a><a href="https://t.me/kasbsaracom" target="_blank">تلگرام کسب‌سرا</a></footer>
+<script>
+const $=s=>document.querySelector(s),esc=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const code=(t,l)=>`<div class="code${l?' ltr':''}">${esc(t)}</div>`;
+const card=(t,en,d,ex,cls)=>`<div class="card ${cls||''}"><h3>${t}</h3><span class="en">${en||''}</span><p>${d}</p>${ex?code(ex):''}</div>`;
+const sec=(id,n,t,s,b)=>`<section id="${id}"><span class="no">فصل ${n}</span><h2>${t}</h2><p class="sub">${s}</p>${b}</section>`;
+const more=(t,b)=>`<details><summary>${t}</summary>${b}</details>`;
+const ch=[['s1','معرفی دوره'],['s2','مقدمه و آشنایی با پرامپت'],['s3','ساختار یک پرامپت خوب'],['s4','تکنیک‌های پرامپت‌نویسی'],['s5','تعامل هوشمند و بهبود پاسخ‌ها'],['s6','تکنیک‌های پیشرفته'],['s7','مهندسی خروجی'],['s8','پروژه نهایی'],['s9','منابع']];
+
+const comp=[
+['نقش','Role','تعیین می‌کند مدل در چه جایگاهی پاسخ بدهد.','تو یک مشاور ارزیابی ایده‌های استارتاپی هستی.'],
+['سطح تجربه','Experience','سطح تجربه مدل را مشخص می‌کند.','با ۱۰ سال تجربه در مشاوره به استارتاپ‌های نوپا.'],
+['تخصص','Professional','حوزهٔ تخصصی را محدود و دقیق می‌کند.','متخصص تحلیل بازار و مدل کسب‌وکار.'],
+['مخاطب','Who','مشخص می‌کند خروجی برای چه کسی نوشته شود.','مخاطب: بنیان‌گذار تازه‌کار بدون دانش مالی.'],
+['وظیفه','What','دقیقاً چه کاری انجام شود.','ایدهٔ استارتاپی من را ارزیابی کن.'],
+['هدف','Why','دلیل انجام کار را می‌گوید تا پاسخ هدفمند شود.','هدف: تصمیم بگیرم ایده ارزش شروع دارد یا نه.'],
+['روش اجرا','How','روش یا چارچوب انجام کار.','ابتدا مشتریان، بعد بازار، رقبا و مدل درآمدی را بررسی کن.'],
+['اطلاعات زمینه‌ای','Context','شرایط و پیش‌زمینهٔ کار.','بودجه محدود، تیم کوچک، بازار اولیه ایران.'],
+['داده‌های ورودی','Raw Data','اطلاعاتی که مدل باید رویشان کار کند.','ایده: اپلیکیشن مقایسهٔ قیمت لوازم خانگی.'],
+['دستورالعمل‌ها','Instructions','قواعد و محدودیت‌های اجرا.','اگر اطلاعات کافی نیست، سؤال بپرس؛ حدس نزن.'],
+['قالب خروجی','Output Format','شکل نهایی پاسخ.','خروجی را در یک جدول و یک جمع‌بندی ۳ خطی بده.']];
+
+const full3=`Role: تو یک مشاور ارزیابی ایده‌های استارتاپی هستی.
+Experience: با ۱۰ سال تجربه در کار با استارتاپ‌های نوپا.
+Professional: متخصص تحلیل بازار و مدل کسب‌وکار.
+Who: مخاطب بنیان‌گذار تازه‌کار است؛ زبان ساده بنویس.
+What: ایدهٔ زیر را ارزیابی کن.
+Why: می‌خواهم تصمیم بگیرم ایده ارزش شروع دارد یا نه.
+How: مشتریان، بازار، رقبا و مدل درآمدی را به‌ترتیب بررسی کن.
+Context: بودجه محدود، تیم کوچک، بازار اولیه ایران.
+Raw Data: اپلیکیشن مقایسهٔ قیمت لوازم خانگی.
+Instructions: اگر اطلاعات کافی نیست سؤال بپرس و حدس نزن.
+Output Format: جدول ارزیابی + جمع‌بندی سه‌خطی.`;
+
+const tech=[
+['Zero-Shot Prompting','بدون مثال','درخواست مستقیم، بدون ارائهٔ نمونه. برای کارهای ساده مناسب است.','این ایدهٔ استارتاپی را ارزیابی کن: اپلیکیشن مقایسهٔ قیمت لوازم خانگی.'],
+['One-Shot Prompting','یک مثال','یک نمونه به مدل می‌دهیم تا قالب و سبک را یاد بگیرد.','نمونه: ایده: پیک دارو ← نقطه قوت: نیاز مبرم؛ ریسک: مقررات.\nحالا ایده: اپلیکیشن مقایسهٔ قیمت لوازم خانگی'],
+['Few-Shot Prompting','چند مثال','چند نمونه برای هدایت دقیق‌تر مدل در قالب و معیار.','نمونه ۱: ایده: پیک دارو ← نقطه قوت: نیاز مبرم؛ ریسک: مقررات.\nنمونه ۲: ایده: آموزش آنلاین زبان ← نقطه قوت: بازار بزرگ؛ ریسک: رقبای زیاد.\nحالا ایده: اپلیکیشن مقایسهٔ قیمت لوازم خانگی'],
+['Step-by-Step Prompting','گام‌به‌گام','کار را به مراحل مشخص تقسیم می‌کنیم.','ایده را مرحله‌به‌مرحله بررسی کن: ۱) مشتریان ۲) بازار ۳) رقبا ۴) مدل درآمدی.'],
+['استفاده از مثال برای هدایت مدل','Examples','مثال خوب، سبک و سطح انتظار ما را روشن می‌کند.','خروجی را مثل این بنویس: «نقطه قوت: ... | ریسک: ... | پیشنهاد: ...»'],
+['تقسیم کار بزرگ به وظایف کوچک','Task Decomposition','کار بزرگ را به چند درخواست کوچک و قابل کنترل می‌شکنیم.','وظیفهٔ ۱: فقط مشتریان هدف را مشخص کن. (بقیه را در پیام‌های بعدی می‌پرسم)'],
+['تعیین محدودیت‌ها و معیارهای کیفیت','Constraints','مرز و معیار پاسخ خوب را از قبل مشخص می‌کنیم.','حداکثر ۲۰۰ کلمه، بدون اصطلاح پیچیده، هر ادعا با دلیل، بودجه محدود را در نظر بگیر.']];
+
+const conv=[['یک ایده استارتاپی پیشنهاد بده.'],['ایده را برای بازار ایران بررسی کن.'],['مشتریان هدف را مشخص کن.'],['مدل درآمدی طراحی کن.'],['یک برنامه اجرایی ۹۰ روزه ارائه بده.']];
+
+const adv=[
+['Chain-of-Thought','تحلیل مرحله‌ای','به‌جای درخواست زنجیرهٔ تفکر خصوصی مدل، مراحل و دلایل اصلی نتیجه‌گیری را به‌صورت خلاصه می‌خواهیم. مناسب مسائل چندمرحله‌ای.','ایده را ارزیابی کن و در پایان، مراحل اصلی و دلایل کلیدی نتیجه‌گیری را خلاصه بنویس.'],
+['Prompt Chaining','زنجیرهٔ پرامپت‌ها','خروجی هر مرحله ورودی مرحلهٔ بعد است. مناسب پروژه‌های بزرگ.','۱) تحلیل مشتریان ← ۲) تحلیل رقبا ← ۳) طراحی مدل درآمدی ← ۴) تدوین برنامه اجرایی استارتاپ'],
+['Information Generation','تولید اطلاعات پایه','قبل از پاسخ نهایی، از مدل می‌خواهیم اطلاعات پایهٔ مرتبط را بنویسد. اطلاعات تولیدشده باید راستی‌آزمایی شود.','ابتدا مفاهیم کلیدی ارزیابی ایده‌های استارتاپی را فهرست کن، سپس بر اساس آن‌ها ایده‌ام را بررسی کن.'],
+['Retrieval-Augmented Generation (RAG)','تولید مبتنی بر بازیابی','پاسخ بر اساس منبعی که خودمان می‌دهیم ساخته می‌شود. تفاوت با جست‌وجوی ساده: جست‌وجو فقط لینک و نتیجه می‌دهد؛ RAG از محتوای منبع، پاسخ مستقیم تولید می‌کند.','فایل آیین‌نامهٔ دانشگاه پیوست است. فقط بر اساس همین فایل پاسخ بده. اگر پاسخ در فایل نیست، بگو «در فایل نیامده است».'],
+['Grounding','پایه‌گذاری روی منبع معتبر','پاسخ را به منابع معتبر وصل می‌کنیم تا ادعاها قابل بررسی باشند.','برای هر ادعا منبع را ذکر کن. اگر منبعی نداری، آن را «نیازمند بررسی» علامت بزن.']];
+
+const outs=[
+['Text','خروجی متنی','متن روان و ساده.','ارزیابی ایده را در سه پاراگراف کوتاه و ساده بنویس.'],
+['Table','خروجی جدولی','مناسب مقایسه.','رقبای ایده را در جدول با ستون‌های «نام، نقطه قوت، نقطه ضعف» مقایسه کن.'],
+['JSON','ساختاریافته برای نرم‌افزار','خروجی قابل پردازش توسط برنامه.','فقط JSON معتبر برگردان با کلیدهای idea, strengths, risks, next_step.'],
+['List','فهرست‌وار','مناسب نکات کوتاه.','پنج ریسک اصلی ایده را در یک فهرست شماره‌دار بنویس.'],
+['Step-by-Step','مرحله‌ای','مناسب آموزش و اجرا.','مراحل اعتبارسنجی ایده را در ۵ گام عملی بنویس.'],
+['Report','گزارش رسمی','گزارش مدیریتی با بخش‌بندی.','گزارش مدیریتی بنویس با بخش‌های: خلاصه، تحلیل بازار، ریسک‌ها، توصیه.'],
+['Email','ایمیل حرفه‌ای','','یک ایمیل رسمی برای دعوت از مشاوران به جلسهٔ ارزیابی ایده بنویس.'],
+['Presentation','محتوای ارائه','ساختار اسلایدی.','ساختار یک ارائهٔ ۵ اسلایدی برای ایده بنویس.']];
+
+const jsonEx=`{
+  "idea": "اپلیکیشن مقایسهٔ قیمت لوازم خانگی",
+  "strengths": ["نیاز مشخص مشتری", "شروع ساده با MVP"],
+  "risks": ["وابستگی به داده فروشگاه‌ها", "رقبای موجود"],
+  "next_step": "مصاحبه با ۱۰ مشتری هدف"
+}`;
+const emailEx=`موضوع: دعوت به جلسهٔ ارزیابی ایدهٔ استارتاپی
+
+سلام و وقت بخیر،
+خوشحال می‌شویم در جلسهٔ ارزیابی ایدهٔ «اپلیکیشن مقایسهٔ قیمت» شرکت کنید.
+زمان و محل جلسه: [تاریخ و ساعت] — [مکان]
+نظرات شما برای تصمیم‌گیری ما ارزشمند است.
+
+با احترام،
+[نام شما]`;
+const reportEx=`گزارش مدیریتی: ارزیابی ایدهٔ استارتاپی
+۱. خلاصه: ایده نیاز مشخص دارد و با MVP قابل آزمون است.
+۲. تحلیل بازار: بازار اولیه ایران؛ نیاز به اعتبارسنجی.
+۳. ریسک‌ها: بودجه محدود، رقبا.
+۴. توصیه: آزمون MVP در ۹۰ روز.`;
+const slides=`۱. معرفی مسئله و ایده
+۲. مشتریان هدف و بازار
+۳. رقبا و تمایز
+۴. مدل درآمدی
+۵. برنامه اجرایی و گام بعدی`;
+const outEx={Report:reportEx,Email:emailEx,JSON:jsonEx,Presentation:slides};
+const fmt=[['Format','قالب کلی (متن، جدول، JSON)'],['Structure','ترتیب و بخش‌بندی'],['Length','طول پاسخ'],['Language','زبان خروجی'],['Tone','لحن (رسمی، دوستانه)'],['Audience','مخاطب'],['Detail','سطح جزئیات'],['Constraints','محدودیت‌ها و ممنوعیت‌ها']];
+
+const final=`Role: تو یک دستیار هوشمند ارزیابی و توسعهٔ ایده‌های استارتاپی هستی.
+Experience: با سال‌ها تجربه در مشاوره به استارتاپ‌های نوپا.
+Professional: متخصص تحلیل بازار، شناسایی مشتری، تحلیل رقبا و طراحی مدل درآمدی.
+Who: مخاطب بنیان‌گذار تیم کوچک است؛ زبان ساده و کاربردی.
+What: ایدهٔ ورودی را ارزیابی کن، بازار را تحلیل کن، مشتریان را شناسایی کن، رقبا را بررسی کن، مدل درآمدی طراحی کن و برنامهٔ اجرایی تدوین کن.
+Why: کمک به تصمیم‌گیری دربارهٔ شروع یا توقف ایده.
+How: مرحله‌به‌مرحله: مشتریان ← بازار ← رقبا ← مدل درآمدی ← برنامه اجرایی. در پایان مراحل و دلایل اصلی را خلاصه کن.
+Context: سامانهٔ هوشمند مبتنی بر هوش مصنوعی برای ارزیابی ایده‌های استارتاپی. محدودیت‌ها: بودجه محدود، تیم کوچک، شروع با MVP، بازار اولیه ایران.
+Raw Data: [ایدهٔ استارتاپی را اینجا بنویس]
+Instructions: اطلاعات یا آمار ساختگی نیاور. اگر اطلاعات کافی نیست، سؤال بپرس. هر نتیجه‌گیری را با دلیل بنویس.
+Output Format: خروجی را در سه قالب بده: ۱) گزارش متنی ۲) جدول ۳) JSON معتبر.`;
+
+const tg='<a href="https://t.me/kasbsaracom" target="_blank">تلگرام کسب‌سرا</a>';
+const who=`<div class="strip"><div class="who"><small>مدرس دوره</small><b>دکتر مهدی <span>باقری‌زاده</span></b></div><p class="lk"><a href="https://www.kasbsara.com" target="_blank">kasbsara.com</a> &nbsp; <a href="https://www.youtube.com/@Dr.Bagherizadeh-AI" target="_blank">یوتیوب</a> &nbsp; ${tg}</p></div>`;
+let h=`<section id="s1"><span class="no">دوره آموزشی</span><h1>چگونه با هوش مصنوعی <span class="or">حرفه‌ای</span> کار کنیم؟</h1><p class="sub">آموزش کاربردی مهندسی پرامپت برای کار، تحصیل و کسب‌وکار</p>
+<div class="who"><small>مدرس دوره</small><b>دکتر مهدی <span>باقری‌زاده</span></b></div><p class="lk"><a href="https://www.kasbsara.com" target="_blank">https://www.kasbsara.com</a> &nbsp; <a href="https://www.youtube.com/@Dr.Bagherizadeh-AI" target="_blank">youtube.com/@Dr.Bagherizadeh-AI</a> &nbsp; ${tg}</p>
+<h3>فصل‌های دوره</h3><div class="chs">${ch.slice(1,8).map((c,i)=>`<a href="#${c[0]}"><b class="or">${i+1}</b> ${c[1]}</a>`).join('')}</div></section>`;
+
+h+=sec('s2',1,'مقدمه و آشنایی با پرامپت','پرامپت، دستوری است که به هوش مصنوعی می‌دهیم.',`<div class="grid">
+${card('پرامپت چیست؟','Prompt','متن ورودی (سؤال یا دستور) که به مدل می‌دهیم.')}
+${card('چرا پاسخ‌ها متفاوت‌اند؟','','کیفیت پاسخ به وضوح، زمینه و جزئیات درخواست بستگی دارد.')}
+${card('سؤال معمولی در برابر پرامپت حرفه‌ای','','سؤال معمولی کوتاه و مبهم است؛ پرامپت حرفه‌ای نقش، هدف، زمینه و قالب خروجی دارد.')}
+${card('مهندسی پرامپت','Prompt Engineering','طراحی و اصلاح پرامپت برای گرفتن خروجی دقیق و قابل‌اتکا.')}
+${card('رابطهٔ LLM و پرامپت','Large Language Model','LLM مدل زبانی بزرگ است و پرامپت، راه ارتباط ما با آن.')}</div>
+<div class="two"><div class="card bad"><h3>❌ پرامپت ضعیف</h3>${code('درباره بازاریابی توضیح بده.')}</div>
+<div class="card good"><h3>✅ پرامپت بهتر</h3>${code('تو یک مشاور بازاریابی هستی. برای یک فروشگاه اینترنتی پسته، برنامه بازاریابی ۳۰ روزه طراحی کن. برنامه را در قالب جدول و با زبان ساده ارائه بده.')}</div></div>`);
+
+h+=sec('s3',2,'ساختار یک پرامپت خوب','هر مؤلفه یک نقش مشخص دارد. مثال اصلی دوره: دستیار ارزیابی ایده‌های استارتاپی.',`<div class="grid">${comp.map(c=>card(c[0],c[1],c[2],c[3])).join('')}</div><h3>نمونهٔ پرامپت کامل</h3>${code(full3)}`);
+
+h+=sec('s4',3,'تکنیک‌های مهم پرامپت‌نویسی','مثال مشترک: ارزیابی یک ایدهٔ استارتاپی.',`<div class="grid">${tech.map((t,i)=>card(`${i+1}. ${t[0]}`,t[1],t[2],t[3])).join('')}</div>`);
+
+h+=who;
+h+=sec('s5',4,'تعامل هوشمند و بهبود پاسخ‌ها','گفتگو کنید، اصلاح کنید و بپرسید؛ پاسخ اول معمولاً پایان کار نیست.',`<div class="grid">
+${card('Conversational Prompting','پرامپت گفتگویی','کار را در قالب یک گفتگوی پیوسته جلو می‌بریم.')}
+${card('Iterative Prompting','پرامپت تکرارشونده','پاسخ را بررسی و درخواست را گام‌به‌گام بهتر می‌کنیم.')}
+${card('اصلاح و تکمیل پرامپت','','کمبودها را مشخص و به پرامپت اضافه می‌کنیم.')}
+${card('پرسیدن سؤال‌های تکمیلی','','از مدل می‌خواهیم قبل از پاسخ، سؤال‌های لازم را بپرسد.','قبل از ارزیابی، هر سؤالی که برای تحلیل دقیق لازم است از من بپرس.')}
+${card('Context Management','مدیریت زمینه','اطلاعات مهم را در گفتگو یادآوری و خلاصه می‌کنیم.')}
+${card('Keywords و Search Queries','کلیدواژه و عبارت جست‌وجو','برای جست‌وجوی دقیق، کلیدواژه‌های مناسب از مدل می‌گیریم.','برای تحقیق دربارهٔ بازار اپلیکیشن مقایسه قیمت، ۵ عبارت جست‌وجو پیشنهاد بده.')}</div>
+<h3>مثال گفتگوی پنج‌مرحله‌ای</h3>${conv.map((c,i)=>`<div class="msg"><small>درخواست ${i+1}</small><br>${c[0]}</div>`).join('')}
+<h3>چگونه پاسخ ضعیف را حرفه‌ای کنیم؟</h3><div class="two"><div class="card bad"><h3>پاسخ اولیه</h3><p>کلی، بدون ساختار، بدون توجه به شرایط شما.</p>${code('یک ایده: اپلیکیشن مقایسه قیمت.')}</div>
+<div class="card good"><h3>پاسخ بهبودیافته</h3><p>متناسب با بازار ایران، مخاطب، مدل درآمدی و برنامهٔ ۹۰ روزه.</p>${code('ایده + مشتریان هدف + مدل درآمدی + برنامه اجرایی ۹۰ روزه (در قالب جدول)')}</div></div>`);
+
+h+=sec('s6',5,'تکنیک‌های پیشرفته اما ساده','هر تکنیک را فقط وقتی لازم است به کار ببریم.',`<div class="grid">${adv.map(t=>card(t[0],t[1],t[2],t[3])).join('')}</div>
+<div class="tip"><b>چه زمانی به کدام نیاز داریم؟</b><br>مسئلهٔ چندمرحله‌ای ← Chain-of-Thought | پروژهٔ بزرگ ← Prompt Chaining | نیاز به دانش پایه ← Information Generation | پاسخ بر اساس سند ما ← RAG و Grounding</div>`);
+
+h+=sec('s7',6,'مهندسی خروجی','خروجی را مثل یک محصول طراحی کنیم.',`<div class="grid">${outs.map(o=>{let x=outEx[o[0]];return card(o[0],o[1],o[2],o[3]).replace(/<\/div>$/,'')+(x?more('مشاهدهٔ نمونه',code(x,o[0]=='JSON')):'')+'</div>'}).join('')}</div>
+${more('نمونهٔ جدول مقایسهٔ رقبا',`<table><tr><th>رقیب</th><th>نقطه قوت</th><th>نقطه ضعف</th></tr><tr><td>رقیب الف</td><td>[نقطه قوت]</td><td>[نقطه ضعف]</td></tr><tr><td>رقیب ب</td><td>[نقطه قوت]</td><td>[نقطه ضعف]</td></tr></table>`)}
+<h3>چگونه قالب خروجی را دقیق تعیین کنیم؟</h3><div class="grid">${fmt.map(f=>card(f[0],'',f[1])).join('')}</div>`);
+
+h+=sec('s8',7,'پروژه نهایی','طراحی دستیار هوشمند ارزیابی و توسعهٔ ایده‌های استارتاپی.',`${code(final)}`);
+
+h+=sec('s9','','منابع','',`<div class="lk"><p><b>OpenAI Prompt Engineering:</b><br><a href="https://developers.openai.com/api/docs/guides/prompt-engineering" target="_blank">https://developers.openai.com/api/docs/guides/prompt-engineering</a></p>
+<p><b>Anthropic Prompt Engineering:</b><br><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices" target="_blank">https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices</a></p>
+<p><b>OpenAI Prompt Generation:</b><br><a href="https://developers.openai.com/api/docs/guides/prompt-generation" target="_blank">https://developers.openai.com/api/docs/guides/prompt-generation</a></p>
+<p><b>مدرس:</b> <a href="https://www.kasbsara.com" target="_blank">https://www.kasbsara.com</a> &nbsp; <a href="https://www.youtube.com/@Dr.Bagherizadeh-AI" target="_blank">https://www.youtube.com/@Dr.Bagherizadeh-AI</a> &nbsp; ${tg}</p></div>`);
+
+$('#m').innerHTML=h;
+$('#nav').innerHTML+=ch.map(c=>`<a href="#${c[0]}">${c[1]}</a>`).join('');
+document.querySelectorAll('.code').forEach(c=>{const t=c.textContent,b=document.createElement('button');b.className='cp';b.textContent='کپی';
+b.onclick=async()=>{try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}b.textContent='کپی شد ✓';setTimeout(()=>b.textContent='کپی',1500)};c.appendChild(b)});
+const links=[...document.querySelectorAll('nav a')],secs=ch.map(c=>$('#'+c[0]));
+function sc(){const d=document.documentElement,p=d.scrollTop/(d.scrollHeight-innerHeight);$('#bar').style.width=(p*100)+'%';let i=0;secs.forEach((s,k)=>{if(s.getBoundingClientRect().top<200)i=k});links.forEach((l,k)=>l.classList.toggle('on',k==i))}
+addEventListener('scroll',sc);sc();
+$('#fsb').onclick=()=>{try{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}catch(e){}};
+document.addEventListener('fullscreenchange',()=>document.body.classList.toggle('fs',!!document.fullscreenElement));
+</script>
+</body>
+</html>
